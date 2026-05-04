@@ -1,7 +1,3 @@
-// ===============================
-// MOBILE MENU
-// ===============================
-
 function toggleMenu() {
     const navLinks = document.getElementById("navLinks");
 
@@ -10,10 +6,22 @@ function toggleMenu() {
     }
 }
 
-// Închide meniul după ce apeși pe un link
-const menuLinks = document.querySelectorAll(".nav-links a");
+function toggleFaq(button) {
+    const faqItem = button.parentElement;
+    const allFaqItems = document.querySelectorAll(".faq-item");
 
-menuLinks.forEach(function(link) {
+    allFaqItems.forEach(function(item) {
+        if (item !== faqItem) {
+            item.classList.remove("active");
+        }
+    });
+
+    faqItem.classList.toggle("active");
+}
+
+const navMenuLinks = document.querySelectorAll(".nav-links a");
+
+navMenuLinks.forEach(function(link) {
     link.addEventListener("click", function() {
         const navLinks = document.getElementById("navLinks");
 
@@ -23,39 +31,14 @@ menuLinks.forEach(function(link) {
     });
 });
 
-
-// ===============================
-// FAQ ACCORDION
-// ===============================
-
-function toggleFaq(button) {
-    const faqItem = button.parentElement;
-    const allFaqItems = document.querySelectorAll(".faq-item");
-
-    // Închide celelalte întrebări
-    allFaqItems.forEach(function(item) {
-        if (item !== faqItem) {
-            item.classList.remove("active");
-        }
-    });
-
-    // Deschide/închide întrebarea apăsată
-    faqItem.classList.toggle("active");
-}
-
-
-// ===============================
-// ACTIVE NAV LINK ON SCROLL
-// ===============================
-
-const sections = document.querySelectorAll("section[id]");
+const sections = document.querySelectorAll("section[id], header[id]");
 const navLinks = document.querySelectorAll(".nav-links a");
 
 window.addEventListener("scroll", function() {
     let currentSection = "";
 
     sections.forEach(function(section) {
-        const sectionTop = section.offsetTop - 120;
+        const sectionTop = section.offsetTop - 130;
         const sectionHeight = section.offsetHeight;
 
         if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
@@ -72,13 +55,8 @@ window.addEventListener("scroll", function() {
     });
 });
 
-
-// ===============================
-// SCROLL ANIMATIONS
-// ===============================
-
 const animatedElements = document.querySelectorAll(
-    ".info-card, .inside-item, .testimonial-card, .pricing-card, .about-content, .quote-box"
+    ".info-card, .inside-item, .testimonial-card, .pricing-card, .about-content, .quote-box, .legal-box, .contact-form"
 );
 
 const observer = new IntersectionObserver(function(entries) {
@@ -95,11 +73,6 @@ animatedElements.forEach(function(element) {
     element.classList.add("hidden");
     observer.observe(element);
 });
-
-
-// ===============================
-// BACK TO TOP BUTTON
-// ===============================
 
 const backToTopButton = document.createElement("button");
 backToTopButton.innerHTML = "↑";
@@ -121,54 +94,169 @@ backToTopButton.addEventListener("click", function() {
     });
 });
 
-
-// ===============================
-// PAYPAL BUTTON CHECK
-// ===============================
-
-const paypalBtn = document.getElementById("paypalBtn");
-
-if (paypalBtn) {
-    paypalBtn.addEventListener("click", function(event) {
-        const paypalLink = paypalBtn.getAttribute("href");
-
-        if (
-            paypalLink === "YOUR_PAYPAL_LINK_HERE" ||
-            paypalLink === "" ||
-            paypalLink === "#"
-        ) {
-            event.preventDefault();
-
-            alert("PayPal link is not added yet. Replace YOUR_PAYPAL_LINK_HERE with your real PayPal payment link.");
-        }
-    });
-}
-
-
-// ===============================
-// CURRENT YEAR IN FOOTER
-// ===============================
-
 const yearSpan = document.getElementById("year");
 
 if (yearSpan) {
     yearSpan.textContent = new Date().getFullYear();
 }
 
+function getCustomerEmail() {
+    const emailInput = document.getElementById("customerEmail");
+    return emailInput ? emailInput.value.trim() : "";
+}
 
-// ===============================
-// SMALL HERO TEXT ANIMATION
-// ===============================
+function hasAcceptedPolicies() {
+    const checkbox = document.getElementById("acceptPolicies");
+    return checkbox ? checkbox.checked : false;
+}
 
-window.addEventListener("load", function() {
-    const heroText = document.querySelector(".hero-text");
-    const heroCard = document.querySelector(".hero-card");
+function showPaymentMessage(message, type) {
+    const paymentMessage = document.getElementById("paymentMessage");
 
-    if (heroText) {
-        heroText.classList.add("hero-loaded");
+    if (!paymentMessage) {
+        return;
     }
 
-    if (heroCard) {
-        heroCard.classList.add("hero-loaded");
+    paymentMessage.textContent = message;
+
+    if (type === "success") {
+        paymentMessage.style.color = "#2e7d32";
+    } else if (type === "error") {
+        paymentMessage.style.color = "#c62828";
+    } else {
+        paymentMessage.style.color = "#9f4f43";
     }
-});
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+if (typeof paypal !== "undefined") {
+    paypal.Buttons({
+        createOrder: async function() {
+            const email = getCustomerEmail();
+            const acceptedTerms = hasAcceptedPolicies();
+
+            if (!isValidEmail(email)) {
+                showPaymentMessage("Please enter a valid email address before payment.", "error");
+                throw new Error("Invalid email.");
+            }
+
+            if (!acceptedTerms) {
+                showPaymentMessage("Please accept the Terms, Privacy Policy, Refund Policy, and Disclaimer.", "error");
+                throw new Error("Policies not accepted.");
+            }
+
+            showPaymentMessage("Creating your secure PayPal order...", "info");
+
+            const response = await fetch("/api/create-order", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    acceptedTerms: acceptedTerms
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                showPaymentMessage(data.error || "Could not create PayPal order.", "error");
+                throw new Error(data.error || "Could not create PayPal order.");
+            }
+
+            return data.id;
+        },
+
+        onApprove: async function(data) {
+            const email = getCustomerEmail();
+
+            showPaymentMessage("Payment approved. Sending your PDF by email...", "info");
+
+            const response = await fetch("/api/capture-order", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    orderID: data.orderID,
+                    email: email
+                })
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                showPaymentMessage(result.error || "Payment issue. Please contact support.", "error");
+                return;
+            }
+
+            showPaymentMessage("Success! Your PDF has been sent to your email.", "success");
+        },
+
+        onCancel: function() {
+            showPaymentMessage("Payment was cancelled. You were not charged.", "error");
+        },
+
+        onError: function(error) {
+            console.error(error);
+            showPaymentMessage("Something went wrong with PayPal. Please try again.", "error");
+        }
+    }).render("#paypal-button-container");
+} else {
+    showPaymentMessage("PayPal could not load. Check your PayPal Client ID in index.html.", "error");
+}
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("contactName").value.trim();
+        const email = document.getElementById("contactEmail").value.trim();
+        const message = document.getElementById("contactMessage").value.trim();
+        const contactStatus = document.getElementById("contactStatus");
+
+        if (!name || !email || !message || !isValidEmail(email)) {
+            contactStatus.textContent = "Please complete all contact fields correctly.";
+            contactStatus.style.color = "#c62828";
+            return;
+        }
+
+        contactStatus.textContent = "Sending message...";
+        contactStatus.style.color = "#9f4f43";
+
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message
+                })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                contactStatus.textContent = data.error || "Could not send message.";
+                contactStatus.style.color = "#c62828";
+                return;
+            }
+
+            contactStatus.textContent = "Message sent successfully.";
+            contactStatus.style.color = "#2e7d32";
+            contactForm.reset();
+        } catch (error) {
+            contactStatus.textContent = "Could not send message. Please try again.";
+            contactStatus.style.color = "#c62828";
+        }
+    });
+}
