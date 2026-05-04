@@ -3,18 +3,24 @@
 <head>
     <title>Strong Single Mom Guide</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID_HERE&currency=USD"></script>
 </head>
 <body>
 
-<header class="header">
+<header class="header" id="home">
     <nav class="navbar">
-        <div class="logo">StrongMom Guide</div>
+        <a href="#home" class="logo">StrongMom Guide</a>
 
         <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
             <a href="#about">About</a>
-            <a href="#inside">What’s Inside</a>
+            <a href="#inside">Inside</a>
             <a href="#pricing">Buy PDF</a>
             <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#terms">Terms</a>
         </div>
 
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -24,36 +30,45 @@
         <div class="hero-text">
             <p class="small-label">Digital PDF Guide for Single Mothers</p>
 
-            <h1>You are not alone. Build a calmer, stronger life for you and your child.</h1>
+            <h1>A gentle guide for single mothers who want clarity, strength, and a fresh start.</h1>
 
             <p class="hero-description">
-                A practical, warm, and easy-to-follow PDF guide created to help single mothers
-                organize their life, manage stress, rebuild confidence, and create a better future.
+                Strong Single Mom Guide is a practical digital PDF created to help single mothers
+                organize daily life, manage stress, rebuild confidence, understand basic budgeting,
+                and plan a more stable future.
             </p>
 
             <div class="hero-buttons">
-                <a href="#pricing" class="btn primary-btn">Get the PDF</a>
+                <a href="#pricing" class="btn primary-btn">Buy the PDF</a>
                 <a href="#inside" class="btn secondary-btn">See What’s Inside</a>
             </div>
 
             <div class="trust-row">
-                <span>✔ Instant digital access</span>
-                <span>✔ Easy to read</span>
-                <span>✔ Practical steps</span>
+                <span>✔ Digital PDF</span>
+                <span>✔ Sent by email after payment</span>
+                <span>✔ One-time payment</span>
             </div>
         </div>
 
         <div class="hero-card">
             <div class="pdf-preview">
                 <div class="pdf-top"></div>
+
                 <h2>Strong Single Mom Guide</h2>
-                <p>Confidence • Budgeting • Healing • Daily Planning</p>
+
+                <p>
+                    Confidence, daily routine, emotional balance, basic budgeting,
+                    support system, and future planning.
+                </p>
+
                 <div class="pdf-lines">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
+
+                <a href="#pricing" class="preview-btn">Get Access</a>
             </div>
         </div>
     </section>
@@ -61,30 +76,39 @@
 
 <main>
 
-<section class="section problem-section">
+<section class="section intro-section">
     <div class="section-title">
-        <p class="small-label">For mothers who do everything</p>
-        <h2>Being a single mom can feel overwhelming.</h2>
+        <p class="small-label">You deserve support</p>
+        <h2>Being a single mother can feel heavy, but you do not have to carry everything without direction.</h2>
         <p>
-            You may be managing bills, work, emotions, parenting, loneliness, and future plans —
-            all at the same time. This guide was created to bring clarity, comfort, and direction.
+            This guide was created for women who need encouragement, structure, and simple steps.
+            It is not about perfection. It is about building a calmer and more stable life,
+            one decision at a time.
         </p>
     </div>
 
     <div class="cards-grid">
         <div class="info-card">
-            <h3>Emotional Reset</h3>
-            <p>Simple exercises to reduce stress, rebuild confidence, and feel more in control.</p>
+            <h3>Feel more organized</h3>
+            <p>
+                Learn how to structure your week, plan priorities, and reduce daily chaos
+                with realistic routines.
+            </p>
         </div>
 
         <div class="info-card">
-            <h3>Daily Structure</h3>
-            <p>Easy routines and planning pages that help you manage busy days with less chaos.</p>
+            <h3>Rebuild confidence</h3>
+            <p>
+                Gentle mindset exercises help you stop blaming yourself and start seeing
+                your strength again.
+            </p>
         </div>
 
         <div class="info-card">
-            <h3>Money Clarity</h3>
-            <p>Basic budgeting ideas to help you understand your income, expenses, and priorities.</p>
+            <h3>Understand your money</h3>
+            <p>
+                Simple budgeting pages help you see income, expenses, needs, and small financial goals.
+            </p>
         </div>
     </div>
 </section>
@@ -92,27 +116,32 @@
 <section class="section about-section" id="about">
     <div class="about-content">
         <div>
-            <p class="small-label">About the PDF</p>
-            <h2>A gentle guide made for real life, not perfection.</h2>
+            <p class="small-label">About the guide</p>
+            <h2>A practical PDF made for real life.</h2>
+
             <p>
-                This PDF is designed for single mothers who need encouragement and practical direction.
-                It is not about becoming perfect. It is about taking small steps, one day at a time.
+                Strong Single Mom Guide is a digital product created to help single mothers
+                feel less overwhelmed and more prepared. The guide includes emotional support,
+                daily planning ideas, money clarity exercises, and gentle reminders that
+                progress does not have to be perfect.
             </p>
 
             <p>
-                The guide includes mindset support, simple planning pages, budgeting ideas,
-                emotional self-care, and practical advice for building stability.
+                After payment, the PDF is automatically sent to the email address you enter before checkout.
+                You can read it on your phone, laptop, tablet, or print it at home.
             </p>
+
+            <a href="#pricing" class="btn primary-btn">Buy Now</a>
         </div>
 
         <div class="about-box">
-            <h3>Perfect for you if:</h3>
+            <h3>This PDF is for you if:</h3>
             <ul>
-                <li>You feel tired and need structure.</li>
-                <li>You want to feel more confident.</li>
-                <li>You need a simple plan for your days.</li>
-                <li>You want emotional and practical support.</li>
-                <li>You want to start improving your life step by step.</li>
+                <li>You feel mentally tired and need structure.</li>
+                <li>You want to plan your days better.</li>
+                <li>You need simple emotional support.</li>
+                <li>You want basic budgeting clarity.</li>
+                <li>You want to feel stronger and more hopeful.</li>
             </ul>
         </div>
     </div>
@@ -121,79 +150,84 @@
 <section class="section inside-section" id="inside">
     <div class="section-title">
         <p class="small-label">What’s inside</p>
-        <h2>The PDF includes practical chapters and worksheets.</h2>
+        <h2>Clear chapters and practical worksheets.</h2>
+        <p>
+            The guide is easy to read and organized into simple sections that you can follow
+            at your own pace.
+        </p>
     </div>
 
     <div class="inside-grid">
         <div class="inside-item">
             <span>01</span>
             <h3>Mindset & Confidence</h3>
-            <p>Learn how to stop blaming yourself and start rebuilding your inner strength.</p>
+            <p>Encouraging pages to help you rebuild trust in yourself.</p>
         </div>
 
         <div class="inside-item">
             <span>02</span>
             <h3>Daily Routine Plan</h3>
-            <p>Create a realistic daily structure for you and your child.</p>
+            <p>Simple structure for mornings, evenings, work, rest, and parenting moments.</p>
         </div>
 
         <div class="inside-item">
             <span>03</span>
             <h3>Budget Basics</h3>
-            <p>Understand your money, needs, priorities, and monthly expenses.</p>
+            <p>Easy worksheets for income, expenses, priorities, and monthly planning.</p>
         </div>
 
         <div class="inside-item">
             <span>04</span>
-            <h3>Emotional Healing</h3>
-            <p>Gentle exercises for stress, sadness, fear, and emotional pressure.</p>
+            <h3>Emotional Balance</h3>
+            <p>Gentle exercises for stress, fear, pressure, and emotional overload.</p>
         </div>
 
         <div class="inside-item">
             <span>05</span>
             <h3>Support System</h3>
-            <p>Learn how to ask for help and create a healthy support circle.</p>
+            <p>Ideas for asking for help and building a healthier support circle.</p>
         </div>
 
         <div class="inside-item">
             <span>06</span>
             <h3>Future Goals</h3>
-            <p>Set small, clear goals for your family, money, home, and personal growth.</p>
+            <p>Small goal-setting pages for family, home, money, and personal growth.</p>
         </div>
     </div>
 </section>
 
 <section class="section quote-section">
     <div class="quote-box">
-        <h2>“You do not have to fix everything today. You only need to take the next small step.”</h2>
-        <p>This guide helps you start with that step.</p>
+        <h2>“You do not have to fix your whole life today. You only need to take the next honest step.”</h2>
+        <p>This PDF helps you start with that step.</p>
+        <a href="#pricing" class="btn light-btn">Get the PDF</a>
     </div>
 </section>
 
 <section class="section testimonials-section">
     <div class="section-title">
-        <p class="small-label">Kind words</p>
-        <h2>Created to feel supportive, simple, and real.</h2>
+        <p class="small-label">Reader experience</p>
+        <h2>Simple, supportive, and easy to follow.</h2>
     </div>
 
     <div class="testimonial-grid">
         <div class="testimonial-card">
             <p>
-                “This guide made me feel understood. It helped me organize my thoughts and my week.”
+                “The routine and budgeting pages helped me feel less lost. It felt simple and realistic.”
             </p>
             <h4>— Emily, mother of one</h4>
         </div>
 
         <div class="testimonial-card">
             <p>
-                “I liked that it was simple and not overwhelming. The budgeting part helped me a lot.”
+                “I liked that it did not make me feel judged. It felt calm and practical.”
             </p>
             <h4>— Sarah, mother of two</h4>
         </div>
 
         <div class="testimonial-card">
             <p>
-                “It reminded me that I can still build a good future, even if things are hard now.”
+                “It helped me remember that small progress still counts.”
             </p>
             <h4>— Anna, single mom</h4>
         </div>
@@ -204,32 +238,47 @@
     <div class="pricing-card">
         <div class="pricing-left">
             <p class="small-label">Digital product</p>
-            <h2>Strong Single Mom Guide PDF</h2>
+            <h2>Buy the Strong Single Mom Guide PDF</h2>
+
             <p>
-                Get instant access to a beautifully organized PDF guide that you can read on your phone,
-                tablet, laptop, or print at home.
+                Enter your email address, accept the policies, and complete your payment through PayPal.
+                After successful payment, the PDF will be automatically sent to your email.
             </p>
 
             <ul>
-                <li>✔ Complete PDF guide</li>
+                <li>✔ Complete digital PDF guide</li>
                 <li>✔ Practical worksheets</li>
-                <li>✔ Budgeting and planning pages</li>
+                <li>✔ Planning and budgeting pages</li>
                 <li>✔ Emotional support exercises</li>
-                <li>✔ One-time payment</li>
+                <li>✔ Sent automatically by email after payment</li>
             </ul>
         </div>
 
         <div class="pricing-right">
-            <p class="price-label">Special price</p>
+            <p class="price-label">One-time payment</p>
             <h3>$9.99</h3>
-            <p class="price-note">One-time payment. Digital download.</p>
+            <p class="price-note">Digital PDF delivered by email.</p>
 
-            <a href="YOUR_PAYPAL_LINK_HERE" target="_blank" class="btn paypal-btn">
-                Buy Now with PayPal
-            </a>
+            <label class="form-label" for="customerEmail">Your email address</label>
+            <input type="email" id="customerEmail" placeholder="you@example.com">
+
+            <label class="checkbox-row">
+                <input type="checkbox" id="acceptPolicies">
+                <span>
+                    I agree to the
+                    <a href="#terms">Terms</a>,
+                    <a href="#privacy">Privacy Policy</a>,
+                    <a href="#refund">Refund Policy</a>,
+                    and <a href="#disclaimer">Disclaimer</a>.
+                </span>
+            </label>
+
+            <div id="paypal-button-container"></div>
+
+            <p id="paymentMessage" class="payment-message"></p>
 
             <p class="secure-note">
-                Secure payment through PayPal. After payment, you will receive access to the PDF.
+                Payments are processed through PayPal. We do not store your card details.
             </p>
         </div>
     </div>
@@ -246,8 +295,8 @@
             <button onclick="toggleFaq(this)">How do I receive the PDF?</button>
             <div class="faq-answer">
                 <p>
-                    After payment, you can send the PDF manually by email or redirect buyers to a download page.
-                    For a simple start, use PayPal and deliver the PDF by email.
+                    After successful PayPal payment, the PDF is automatically sent to the email address
+                    you entered before checkout.
                 </p>
             </div>
         </div>
@@ -262,30 +311,146 @@
         </div>
 
         <div class="faq-item">
-            <button onclick="toggleFaq(this)">Is this medical or legal advice?</button>
+            <button onclick="toggleFaq(this)">What if I type the wrong email?</button>
             <div class="faq-answer">
                 <p>
-                    No. This PDF is for educational and motivational purposes only. It does not replace
-                    professional medical, legal, financial, or psychological advice.
+                    Contact us using the contact form below and include your PayPal order information.
+                    We will help you receive your PDF.
                 </p>
             </div>
         </div>
 
         <div class="faq-item">
-            <button onclick="toggleFaq(this)">Is the payment secure?</button>
+            <button onclick="toggleFaq(this)">Is this medical, legal, or financial advice?</button>
             <div class="faq-answer">
                 <p>
-                    Payment is handled by PayPal, so customers complete checkout through PayPal’s secure payment page.
+                    No. This PDF is for educational, motivational, and general self-organization purposes only.
+                    It does not replace professional advice.
                 </p>
             </div>
         </div>
     </div>
 </section>
 
+<section class="section contact-section" id="contact">
+    <div class="section-title">
+        <p class="small-label">Contact</p>
+        <h2>Need help with your order?</h2>
+        <p>
+            Send a message if you have questions about your PDF, payment, delivery, or email address.
+        </p>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+        <input type="text" id="contactName" placeholder="Your name">
+        <input type="email" id="contactEmail" placeholder="Your email">
+        <textarea id="contactMessage" placeholder="Your message"></textarea>
+
+        <button type="submit" class="btn primary-btn">Send Message</button>
+
+        <p id="contactStatus" class="payment-message"></p>
+    </form>
+</section>
+
+<section class="section legal-section" id="privacy">
+    <div class="legal-box">
+        <p class="small-label">Privacy Policy</p>
+        <h2>Privacy Policy</h2>
+
+        <p>
+            We collect only the information needed to process your order and provide support,
+            such as your email address, name if provided, payment confirmation details, and messages
+            sent through the contact form.
+        </p>
+
+        <p>
+            Payments are processed by PayPal. We do not collect or store your card information.
+            Your email address is used to send the purchased PDF and order-related messages.
+        </p>
+
+        <p>
+            We do not sell your personal information. We may keep order records for customer support,
+            fraud prevention, and basic business records.
+        </p>
+
+        <p>
+            To request deletion or correction of your contact information, please contact us through
+            the contact form.
+        </p>
+    </div>
+</section>
+
+<section class="section legal-section" id="terms">
+    <div class="legal-box">
+        <p class="small-label">Terms of Use</p>
+        <h2>Terms of Use</h2>
+
+        <p>
+            By purchasing this digital PDF, you agree that the product is for personal use only.
+            You may not resell, upload, share, copy, or redistribute the PDF without written permission.
+        </p>
+
+        <p>
+            The content is provided for educational and motivational purposes. We do not guarantee
+            specific personal, emotional, financial, legal, or professional results.
+        </p>
+
+        <p>
+            You are responsible for entering a correct email address before payment.
+            If you make a mistake, contact us and we will try to help you.
+        </p>
+    </div>
+</section>
+
+<section class="section legal-section" id="refund">
+    <div class="legal-box">
+        <p class="small-label">Refund Policy</p>
+        <h2>Refund Policy</h2>
+
+        <p>
+            Because this is a digital product delivered by email, all sales are generally final once
+            the PDF has been sent.
+        </p>
+
+        <p>
+            If you paid but did not receive the PDF because of a technical issue, please contact us.
+            We will resend the PDF after verifying your payment.
+        </p>
+
+        <p>
+            Refund requests may be reviewed individually, especially in cases of duplicate payments
+            or clear technical problems.
+        </p>
+    </div>
+</section>
+
+<section class="section legal-section" id="disclaimer">
+    <div class="legal-box">
+        <p class="small-label">Disclaimer</p>
+        <h2>Disclaimer</h2>
+
+        <p>
+            Strong Single Mom Guide is not medical, psychological, legal, financial, or professional advice.
+            The information is general and educational.
+        </p>
+
+        <p>
+            If you are experiencing a medical emergency, mental health crisis, abuse, legal problem,
+            or financial emergency, please contact a qualified professional or emergency service in your area.
+        </p>
+
+        <p>
+            Use the guide as a supportive resource, not as a replacement for professional help.
+        </p>
+    </div>
+</section>
+
 <section class="section final-cta">
     <h2>Start building a calmer and stronger life today.</h2>
-    <p>You deserve support, structure, and hope. Take the first step now.</p>
-    <a href="#pricing" class="btn primary-btn">Get the PDF Guide</a>
+    <p>
+        Get the PDF, follow the simple steps, and give yourself the structure you deserve.
+    </p>
+    <a href="#pricing" class="btn primary-btn">Buy the PDF</a>
 </section>
 
 </main>
@@ -293,18 +458,24 @@
 <footer class="footer">
     <div>
         <h3>StrongMom Guide</h3>
-        <p>Digital support for single mothers.</p>
+        <p>Digital support and practical organization for single mothers.</p>
     </div>
 
     <div class="footer-links">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#inside">Inside</a>
         <a href="#pricing">Buy</a>
         <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+        <a href="#refund">Refund</a>
+        <a href="#disclaimer">Disclaimer</a>
     </div>
 
     <p class="copyright">
-        © 2026 StrongMom Guide. All rights reserved.
+        © <span id="year"></span> StrongMom Guide. All rights reserved.
     </p>
 </footer>
 
